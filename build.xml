@@ -9,7 +9,7 @@
         <property name="resources.dir" value="resources"/>
         <property name="lib.dir" value="lib"/>
         <path id="classpath">
-            <fileset dir="${lib.dir}" includes="**/*.jar"/>
+            <fileset dir="libs" includes="**/*.jar"/>
         </path>
     </target>
 
@@ -30,7 +30,7 @@
                 <attribute name="Main-Class" value="${main.class}"/>
                 <attribute name="Class-Path" value="${lib.dir} ${resources.dir}"/>
             </manifest>
-            <zipgroupfileset dir="${lib.dir}" includes="*.jar"/>
+            <zipgroupfileset dir="libs" includes="*.jar"/>
             <fileset dir=".">
                 <include name="**/${resources.dir}/**"/>
             </fileset>

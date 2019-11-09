@@ -1,14 +1,14 @@
 package org.academiadecodigo.thunderstructs.gameobjects;
 
-import org.academiadecodigo.simplegraphics.pictures.Picture;
-import org.academiadecodigo.thunderstructs.Game;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
+import org.academiadecodigo.simplegraphics.pictures.BetterPicture;
+import org.academiadecodigo.thunderstructs.Game;
 
 public class GameObjects implements KeyboardHandler {
 
 
-    private Picture objectImage;
+    private BetterPicture objectImage;
     private Position position;
     private ObjectType objectType;
 
@@ -27,8 +27,7 @@ public class GameObjects implements KeyboardHandler {
     private boolean collisionOnBottomLeft;
 
 
-
-    public GameObjects (Position position, Picture objectImage, ObjectType objectType) {
+    public GameObjects(Position position, BetterPicture objectImage, ObjectType objectType) {
         this.objectImage = objectImage;
         this.position = position;
         this.objectType = objectType;
@@ -140,19 +139,19 @@ public class GameObjects implements KeyboardHandler {
     public void keyReleased(KeyboardEvent keyboardEvent) {
     }
 
-    public Picture getObjectImage() {
+    public BetterPicture getObjectImage() {
         return this.objectImage;
     }
 
-    public Position getPosition () {
+    public Position getPosition() {
         return this.position;
     }
 
-    public int getWidth () {
+    public int getWidth() {
         return this.width;
     }
 
-    public int getHeight () {
+    public int getHeight() {
         return this.height;
     }
 
@@ -172,11 +171,11 @@ public class GameObjects implements KeyboardHandler {
         return collisionOnRight;
     }
 
-    public boolean isCollisionOnBottomRight(){
+    public boolean isCollisionOnBottomRight() {
         return collisionOnBottomRight;
     }
 
-    public boolean isCollisionOnBottomLeft(){
+    public boolean isCollisionOnBottomLeft() {
         return collisionOnBottomLeft;
     }
 
@@ -200,11 +199,11 @@ public class GameObjects implements KeyboardHandler {
         this.collisionOnRight = collisionOnRight;
     }
 
-    public void setCollisionOnBottomRight(boolean collisionOnBottomRight){
+    public void setCollisionOnBottomRight(boolean collisionOnBottomRight) {
         this.collisionOnBottomRight = collisionOnBottomRight;
     }
 
-    public void setCollisionOnBottomLeft(boolean collisionOnBottomLeft){
+    public void setCollisionOnBottomLeft(boolean collisionOnBottomLeft) {
         this.collisionOnBottomLeft = collisionOnBottomLeft;
     }
 }

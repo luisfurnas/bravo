@@ -1,5 +1,6 @@
 package org.academiadecodigo.thunderstructs.gameobjects;
 
+import org.academiadecodigo.simplegraphics.pictures.BetterPicture;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.thunderstructs.Game;
@@ -29,12 +30,12 @@ public class Player extends GameObjects {
     private String direction; //TODO: implement shooting
     private int health;
     private Position position;
-    private Picture characterImage;
+    private BetterPicture characterImage;
 
 
     public Player(Position position, String picture, Game game) {
 
-        super(position, new Picture(position.getPosX(), position.getPosY(), picture), ObjectType.PLAYER);
+        super(position, new BetterPicture(position.getPosX(), position.getPosY(), picture), ObjectType.PLAYER);
         this.position = position;
         this.characterImage = getObjectImage();
         this.speed = 3;
@@ -46,7 +47,7 @@ public class Player extends GameObjects {
     }
 
     @Override
-    public void moveRight () {
+    public void moveRight() {
 
         rightStoppingCounter = 0; //if > 0 (rightMovementCounter--)
 
@@ -63,9 +64,9 @@ public class Player extends GameObjects {
         }
 
 
-        if (position.getPosX() < (Game.GAME_WIDTH/2 + 200)) {
+        if (position.getPosX() < (Game.GAME_WIDTH / 2 + 200)) {
 
-            super.getObjectImage().translate(currentRightSpeed,0);
+            super.getObjectImage().translate(currentRightSpeed, 0);
             position.setPosX(position.getPosX() + currentRightSpeed);
 
             rightMovementCounter++;
@@ -78,8 +79,8 @@ public class Player extends GameObjects {
                 return;
             }
 
-            ((GameObjects)o).getObjectImage().translate(-currentRightSpeed,0);
-            ((GameObjects)o).getPosition().setPosX(((GameObjects)o).getPosition().getPosX() - currentRightSpeed);
+            ((GameObjects) o).getObjectImage().translate(-currentRightSpeed, 0);
+            ((GameObjects) o).getPosition().setPosX(((GameObjects) o).getPosition().getPosX() - currentRightSpeed);
         }
 
         rightMovementCounter++;
@@ -88,7 +89,7 @@ public class Player extends GameObjects {
         //position.setPosX(position.getPosX() + currentRightSpeed);
     }
 
-    public void stopRight () {
+    public void stopRight() {
 
         rightMovementCounter = 0; //if > 0 (rightMovementCounter--)
 
@@ -108,9 +109,9 @@ public class Player extends GameObjects {
             currentRightSpeed = 0;
         }
 
-        if (position.getPosX() < (Game.GAME_WIDTH/2 + 200)) {
+        if (position.getPosX() < (Game.GAME_WIDTH / 2 + 200)) {
 
-            super.getObjectImage().translate(currentRightSpeed,0);
+            super.getObjectImage().translate(currentRightSpeed, 0);
             position.setPosX(position.getPosX() + currentRightSpeed);
 
             rightStoppingCounter++;
@@ -123,8 +124,8 @@ public class Player extends GameObjects {
                 return;
             }
 
-            ((GameObjects)o).getObjectImage().translate(-currentRightSpeed,0);
-            ((GameObjects)o).getPosition().setPosX(((GameObjects)o).getPosition().getPosX() - currentRightSpeed);
+            ((GameObjects) o).getObjectImage().translate(-currentRightSpeed, 0);
+            ((GameObjects) o).getPosition().setPosX(((GameObjects) o).getPosition().getPosX() - currentRightSpeed);
         }
 
         rightStoppingCounter++;
@@ -135,7 +136,7 @@ public class Player extends GameObjects {
     }
 
     @Override
-    public void moveLeft () {
+    public void moveLeft() {
 
         if (position.getPosX() < 100) {
             return;
@@ -155,7 +156,7 @@ public class Player extends GameObjects {
             currentLeftSpeed = speed;
         }
 
-        if (position.getPosX() > (Game.GAME_WIDTH/2 - 200)) {
+        if (position.getPosX() > (Game.GAME_WIDTH / 2 - 200)) {
 
             super.getObjectImage().translate(-currentLeftSpeed, 0);
             position.setPosX(position.getPosX() - currentLeftSpeed);
@@ -170,15 +171,15 @@ public class Player extends GameObjects {
                 return;
             }
 
-            ((GameObjects)o).getObjectImage().translate(+currentLeftSpeed,0);
-            ((GameObjects)o).getPosition().setPosX(((GameObjects)o).getPosition().getPosX() + currentLeftSpeed);
+            ((GameObjects) o).getObjectImage().translate(+currentLeftSpeed, 0);
+            ((GameObjects) o).getPosition().setPosX(((GameObjects) o).getPosition().getPosX() + currentLeftSpeed);
         }
 
         leftMovementCounter++;
 
-       // leftMovementCounter++;
-       // super.getObjectImage().translate(-currentLeftSpeed, 0);
-       // position.setPosX(position.getPosX() - currentLeftSpeed);
+        // leftMovementCounter++;
+        // super.getObjectImage().translate(-currentLeftSpeed, 0);
+        // position.setPosX(position.getPosX() - currentLeftSpeed);
     }
 
     public void stopLeft() {
@@ -200,7 +201,7 @@ public class Player extends GameObjects {
             currentLeftSpeed = 0;
         }
 
-        if (position.getPosX() > (Game.GAME_WIDTH/2 - 200)) {
+        if (position.getPosX() > (Game.GAME_WIDTH / 2 - 200)) {
 
             super.getObjectImage().translate(-currentLeftSpeed, 0);
             position.setPosX(position.getPosX() - currentLeftSpeed);
@@ -215,8 +216,8 @@ public class Player extends GameObjects {
                 return;
             }
 
-            ((GameObjects)o).getObjectImage().translate(+currentLeftSpeed,0);
-            ((GameObjects)o).getPosition().setPosX(((GameObjects)o).getPosition().getPosX() + currentLeftSpeed);
+            ((GameObjects) o).getObjectImage().translate(+currentLeftSpeed, 0);
+            ((GameObjects) o).getPosition().setPosX(((GameObjects) o).getPosition().getPosX() + currentLeftSpeed);
         }
 
         leftStoppingCounter++;
@@ -226,13 +227,13 @@ public class Player extends GameObjects {
         //position.setPosX(position.getPosX() - currentLeftSpeed);
     }
 
-    public void jump () {
+    public void jump() {
 
         setGravity(false);
         smoothJump();
 
         position.setPosY(getPosY() - currentJumpSpeed);
-        characterImage.translate(0,- currentJumpSpeed);
+        characterImage.translate(0, -currentJumpSpeed);
         jumpCounter++;
 
         if (jumpCounter >= 50) {
@@ -244,7 +245,7 @@ public class Player extends GameObjects {
     }
 
 
-    public void tick () {
+    public void tick() {
 
         if (right && !isCollisionOnRight()) {
             moveRight();
@@ -268,7 +269,7 @@ public class Player extends GameObjects {
             if (isCollisionOnLeft()) {
                 currentLeftSpeed = 0;
             }
-            
+
             stopLeft();
         }
 
@@ -285,7 +286,7 @@ public class Player extends GameObjects {
         }
     }
 
-    public void smoothJump () {
+    public void smoothJump() {
         if (jumpCounter == 30) {
             currentJumpSpeed--;
         }
@@ -299,9 +300,9 @@ public class Player extends GameObjects {
         }
     }
 
-//TODO: Change KEY_SPACE with KEY_UP; Erase commented code; Improve jump smoothness (using speed...).
+    //TODO: Change KEY_SPACE with KEY_UP; Erase commented code; Improve jump smoothness (using speed...).
     @Override
-    public void keyReleased (KeyboardEvent keyboardEvent) {
+    public void keyReleased(KeyboardEvent keyboardEvent) {
         switch (keyboardEvent.getKey()) {
             case KeyboardEvent.KEY_LEFT:
                 setLeft(false);
@@ -322,8 +323,8 @@ public class Player extends GameObjects {
                 setRight(true);
                 break;
             //case KeyboardEvent.KEY_DOWN:
-               // moveDown();
-                //break;
+            // moveDown();
+            //break;
             case KeyboardEvent.KEY_SPACE:
 
                 if (isCollisionOnBottom()) {
@@ -360,27 +361,27 @@ public class Player extends GameObjects {
         return this.position.getPosY();
     }
 
-    public void setRight (boolean setStatus) {
+    public void setRight(boolean setStatus) {
         this.right = setStatus;
     }
 
-    public void setLeft (boolean setStatus) {
+    public void setLeft(boolean setStatus) {
         this.left = setStatus;
     }
 
-    public void setJumping (boolean setStatus) {
+    public void setJumping(boolean setStatus) {
         this.jumping = setStatus;
     }
 
-    public boolean getPlayGame () {
+    public boolean getPlayGame() {
         return this.playGame;
     }
 
-    public boolean getQuit () {
+    public boolean getQuit() {
         return this.quit;
     }
 
-    public void setPlayGameFalse () {
+    public void setPlayGameFalse() {
         this.playGame = false;
     }
 }

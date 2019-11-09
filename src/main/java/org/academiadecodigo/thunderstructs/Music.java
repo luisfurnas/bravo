@@ -16,16 +16,14 @@ public class Music {
         URL soundURL;
         AudioInputStream audioInputStream = null;
         try {
-            soundURL = Main.class.getResource(pathStr);
+            soundURL = getClass().getClassLoader().getResource(pathStr);
             if (soundURL == null) {
                 pathStr = pathStr.substring(1);
                 File file = new File(pathStr);
                 soundURL = file.toURI().toURL();
             }
             audioInputStream = AudioSystem.getAudioInputStream(soundURL);
-        } catch (UnsupportedAudioFileException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (UnsupportedAudioFileException | IOException e) {
             e.printStackTrace();
         }
         try {
@@ -33,14 +31,12 @@ public class Music {
             clip.open(audioInputStream);
             clip.start();
             clip.loop(clip.LOOP_CONTINUOUSLY);
-        } catch (LineUnavailableException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (LineUnavailableException | IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void stopMusic(){
+    public void stopMusic() {
         clip.stop();
     }
 }

@@ -1,6 +1,6 @@
 package org.academiadecodigo.thunderstructs.gameobjects;
 
-import org.academiadecodigo.simplegraphics.pictures.Picture;
+import org.academiadecodigo.simplegraphics.pictures.BetterPicture;
 
 public class Enemy extends GameObjects {
 
@@ -10,7 +10,7 @@ public class Enemy extends GameObjects {
 
     public Enemy(Position position, String picturePath) {
 
-        super(position, new Picture(position.getPosX(), position.getPosY(), picturePath), ObjectType.ENEMY);
+        super(position, new BetterPicture(position.getPosX(), position.getPosY(), picturePath), ObjectType.ENEMY);
     }
 
     //last movement indicates the last movement through a boolean: true = left; false = right
@@ -24,10 +24,10 @@ public class Enemy extends GameObjects {
             movingLeft = true;
         }
 
-            if (isCollisionOnBottomLeft()) {
-                moveLeft();
-                return;
-            }
-            movingLeft = false;
+        if (isCollisionOnBottomLeft()) {
+            moveLeft();
+            return;
         }
+        movingLeft = false;
+    }
 }
