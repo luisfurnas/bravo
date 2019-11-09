@@ -1,5 +1,6 @@
 package org.academiadecodigo.thunderstructs.development;
 
+import org.academiadecodigo.simplegraphics.pictures.BetterPicture;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.academiadecodigo.thunderstructs.gameobjects.GameObjects;
 import org.academiadecodigo.thunderstructs.gameobjects.ObjectType;
@@ -15,7 +16,7 @@ public class Bullet extends GameObjects {
 
 
     public Bullet(Position position, String picture, int speed) {
-        super(position, new Picture(position.getPosX(), position.getPosY(), picture), ObjectType.REGULAR_BLOCK);
+        super(position, new BetterPicture(position.getPosX(), position.getPosY(), picture), ObjectType.REGULAR_BLOCK);
         this.position = position;
         this.speed = speed;
     }

@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+}
+
+group 'org.academiadecodigo.thunderstructs'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+}
